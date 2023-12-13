@@ -1,0 +1,140 @@
+# Import and install dependencies
+import cv2
+import numpy as np
+import os
+from matplotlib import pyplot as plt
+import time
+import mediapipe as mp
+
+# Creating variables
+mp_holistic = mp.solutions.holistic  # Holistic model (make our detections)
+mp_drawing = mp.solutions.drawing_utils  # Drawing utilities
+
+# Make detections using mediapipe (Create a function)
+def mediapipe_detection(image, model):
+    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)          # Color conversion BGR 2 RGB       
+    results = model.process(image)                          # Make predictions 
+    image.flags.writeable = True                            # Image is now writable
+    image.flags.writeable = False                           # Image is no longer writable
+    image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)          # Color conversion RGB 2 BGR
+    return image, results
+
+# Draw styled landmarks
+def draw_styled_landmarks(image, face_landmarks, pose_landmarks, left_hand_landmarks, right_hand_landmarks):    
+    if face_landmarks:
+        mp_drawing.draw_landmarks(image, face_landmarks, mp_holistic.FACEMESH_TESSELATION,
+                                  mp_drawing.DrawingSpec(color=(80, 110, 10), thickness=1, circle_radius=1),
+                                  mp_drawing.DrawingSpec(color=(80, 256, 121), thickness=1, circle_radius=1))
+
+    if pose_landmarks:
+        mp_drawing.draw_landmarks(image, pose_landmarks, mp_holistic.POSE_CONNECTIONS,
+                                  mp_drawing.DrawingSpec(color=(80, 22, 10), thickness=2, circle_radius=4),
+                                  mp_drawing.DrawingSpec(color=(121, 44, 121), thickness=2, circle_radius=2))
+
+    if left_hand_landmarks:
+        mp_drawing.draw_landmarks(image, left_hand_landmarks, mp_holistic.HAND_CONNECTIONS,
+                                  mp_drawing.DrawingSpec(color=(121, 22, 76), thickness=2, circle_radius=4),
+                                  mp_drawing.DrawingSpec(color=(121, 44, 250), thickness=2, circle_radius=2))
+
+    if right_hand_landmarks:
+        mp_drawing.draw_landmarks(image, right_hand_landmarks, mp_holistic.HAND_CONNECTIONS,
+                                  mp_drawing.DrawingSpec(color=(245, 117, 66), thickness=2, circle_radius=4),
+                                  mp_drawing.DrawingSpec(color=(245, 66, 230), thickness=2, circle_radius=2))
+
+# Open the camera
+cap = cv2.VideoCapture(0)
+if not cap.isOpened():
+    print("Error: Couldn't open the camera.")
+    exit()
+
+# Set mediapipe model
+holistic = mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=0.5)
+with holistic:
+    while cap.isOpened():
+        # Read frame
+        ret, frame = cap.read()
+
+        # Make detections
+        image, results = mediapipe_detection(frame, holistic)
+        face_landmarks = results.face_landmarks
+        pose_landmarks = results.pose_landmarks
+        left_hand_landmarks = results.left_hand_landmarks
+        right_hand_landmarks = results.right_hand_landmarks
+       
+        # Draw landmarks
+        draw_styled_landmarks(image, face_landmarks, pose_landmarks, left_hand_landmarks, right_hand_landmarks)
+        
+        # Visualize frame using matplotlib
+        # plt.imshow(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))        displays the frame using Matplotlib after converting it from BGR to RGB color forma
+        # plt.pause(0.01)                                           Pause for a short time to allow the plot to be displayed
+        # plt.show()                                             
+        # plt.close()                                               Explicitly close the Matplotlib window
+        
+        #Show to the user 
+        cv2.imshow('OpenCV Feed', image) 
+
+        # Access the pose landmarks as an array
+        if results.left_hand_landmarks is not None:
+            # Extract keypoints for the left hand
+            left_hand_landmarks = results.left_hand_landmarks.landmark
+            left_hand_array = np.array([[landmark.x, landmark.y, landmark.z] for landmark in left_hand_landmarks])
+            
+            # Print or process the array as needed
+            print("Left hand landmarks array:")
+            print(left_hand_array)
+
+            num_landmarks = len(left_hand_landmarks)
+            print(f"Number of left hand landmarks: {num_landmarks}")
+        else:
+            print("Left hand landmarks not detected in this frame")
+
+        if results.right_hand_landmarks is not None:
+            # Extract keypoints for the right hand
+            right_hand_landmarks = results.right_hand_landmarks.landmark
+            right_hand_array = np.array([[landmark.x, landmark.y, landmark.z] for landmark in right_hand_landmarks])
+            
+            # Print or process the array as needed
+            print("Right hand landmarks array:")
+            print(right_hand_array)
+
+            num_landmarks = len(right_hand_landmarks)
+            print(f"Number of right hand landmarks: {num_landmarks}")
+        else:
+            print("Right hand landmarks not detected in this frame")
+
+        if results.face_landmarks is not None:
+            # Extract keypoints for the face
+            face_landmarks = results.face_landmarks.landmark
+            face_array = np.array([[landmark.x, landmark.y, landmark.z] for landmark in face_landmarks])
+            
+            # Print or process the array as needed
+            print("Face landmarks array:")
+            print(face_array)
+
+            num_landmarks = len(face_landmarks)
+            print(f"Number of face landmarks: {num_landmarks}")
+        else:
+            print("Face landmarks not detected in this frame")
+
+        if results.pose_landmarks is not None:
+            # Extract keypoints for the pose
+            pose_landmarks = results.pose_landmarks.landmark
+            pose_array = np.array([[landmark.x, landmark.y, landmark.z] for landmark in pose_landmarks])
+            
+            # Print or process the array as needed
+            print("Pose landmarks array:")
+            print(pose_array)
+
+            num_landmarks = len(pose_landmarks)
+            print(f"Number of pose landmarks: {num_landmarks}")
+        else:
+            
+        # Break gracefully
+        if cv2.waitKey(10) & 0xFF == ord('q'):  
+            break
+
+# Release the camera and close OpenCV windows
+cap.release()
+cv2.destroyAllWindows()
+
+     
