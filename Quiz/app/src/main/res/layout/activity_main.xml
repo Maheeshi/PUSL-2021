@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/primary_color"
+    tools:context=".MainActivity"
+    android:gravity="center"
+    >
+
+    <TextView
+        android:id="@+id/testKnowledge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:adjustViewBounds="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:text="@string/test_your_knowledge"
+        android:textColor="@color/white"
+        android:textSize="30sp" />
+
+
+    <TextView
+        android:id="@+id/id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/testKnowledge"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/of"
+        android:textColor="@color/white"
+        android:textSize="30sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/in"
+        android:layout_marginTop="50dp"
+        android:id="@+id/lettersAndNumbers"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="Letters and Numbers"
+        android:textColor="@color/white"
+        android:textSize="30sp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/startQuizBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout1"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/round_back_green20"
+        android:minHeight="48dp"
+        android:onClick="startGame"
+        android:text="@string/start_quiz"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold">
+
+    </androidx.appcompat.widget.AppCompatButton>
+
+</LinearLayout>

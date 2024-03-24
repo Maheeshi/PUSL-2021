@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Sign_App</string>
+    <string name="logo_description">Description of your logo</string>
+    <string name="sign_language_description">Sign language is in your hands</string>
+    <string name="get_started_button_text">Get Started</string>
+    <string name="have_Account_Button_text">I already have an account</string>
+    <string name="image_button_content_description">Translate Button</string>
+    <string name="here_to_unwind">Here To Unwind \!</string>
+    <string name="half_rectangle">half rectangle</string>
+    <string name="blue_rectangle">blue rectangle</string>
+    <string name="round_rectangle">green round rectangle</string>
+    <string name="panda">panda image</string>
+    <string name="white_rectangle">white rectangle</string>
+    <string name="community">Community</string>
+    <string name="circles">circles</string>
+    <string name="panda_img">panda</string>
+    <string name="translate">Translate</string>
+    <string name="activities">Activities</string>
+    <string name="Discover">Discover</string>
+    <string name="welcome_to">Welcome to</string>
+    <string name="HandWave">HandWave</string>
+    <string name="about_dash">about_dash</string>
+    <string name="translate_dash">translate_dash</string>
+    <string name="activity_dash">activity_dash</string>
+    <string name="community_dash">community_dash</string>
+    <string name="settings_dash">settings_dash</string>
+    <string name="logout_dash">logout_dash</string>
+    <string name="bound_rectangle">bound_rectangle</string>
+    <string name="divider_line">divider_line</string>
+    <string name="welcome_to_HandWave">Welcome to HandWave</string>
+    <string name="about_us">"About Us,
+
+        Welcome to our Translating Sign Language Project, where innovation meets inclusivity\!
+
+        We are a passionate team dedicated to breaking down communication barriers for the Deaf and Hard of Hearing community.
+
+        Our mission is to create a seamless bridge between sign language and spoken language, fostering a world where everyone can express themselves freely."</string>
+    <string name="menu_button">Menu button</string>
+</resources>

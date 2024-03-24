@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#060A2F"
+    tools:context=".Welcome_screen">
+
+    <ImageView
+        android:id="@+id/logoImg"
+        android:layout_width="148dp"
+        android:layout_height="140dp"
+        android:layout_gravity="center"
+        android:contentDescription="@string/logo_description"
+        android:src="@drawable/logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.24" />
+
+    <TextView
+        android:id="@+id/QuoteTxt"
+        android:layout_width="281dp"
+        android:layout_height="107dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="216dp"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:padding="2dp"
+        android:text="@string/sign_language_description"
+        android:textColor="@android:color/white"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logoImg"
+        app:layout_constraintVertical_bias="0.101" />
+
+    <ImageView
+        android:id="@+id/dividerLine"
+        android:layout_width="299dp"
+        android:layout_height="5dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="8dp"
+        android:background="#413B3B"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/QuoteTxt"
+        android:contentDescription="@string/divider_line" />
+
+    <Button
+        android:id="@+id/getStartedButton"
+        android:layout_width="337dp"
+        android:layout_height="60dp"
+        android:background="@color/orange"
+        android:fontFamily="sans-serif"
+        android:text="@string/get_started_button_text"
+        android:textColor="@android:color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.594"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.782" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SignLang"
+        tools:targetApi="31">
+        <activity
+            android:name=".DisZ"
+            android:exported="false" />
+        <activity
+            android:name=".DisY"
+            android:exported="false" />
+        <activity
+            android:name=".DisX"
+            android:exported="false" />
+        <activity
+            android:name=".DisW"
+            android:exported="false" />
+        <activity
+            android:name=".DisV"
+            android:exported="false" />
+        <activity
+            android:name=".DisU"
+            android:exported="false" />
+        <activity
+            android:name=".DisT"
+            android:exported="false" />
+        <activity
+            android:name=".DisS"
+            android:exported="false" />
+        <activity
+            android:name=".DisR"
+            android:exported="false" />
+        <activity
+            android:name=".DisQ"
+            android:exported="false" />
+        <activity
+            android:name=".DisP"
+            android:exported="false" />
+        <activity
+            android:name=".DisO"
+            android:exported="false" />
+        <activity
+            android:name=".DisN"
+            android:exported="false" />
+        <activity
+            android:name=".DisM"
+            android:exported="false" />
+        <activity
+            android:name=".DisL"
+            android:exported="false" />
+        <activity
+            android:name=".DisK"
+            android:exported="false" />
+        <activity
+            android:name=".DisJ"
+            android:exported="false" />
+        <activity
+            android:name=".DisI"
+            android:exported="false" />
+        <activity
+            android:name=".DisH"
+            android:exported="false" />
+        <activity
+            android:name=".DisG"
+            android:exported="false" />
+        <activity
+            android:name=".DisF"
+            android:exported="false" />
+        <activity
+            android:name=".DisE"
+            android:exported="false" />
+        <activity
+            android:name=".DisD"
+            android:exported="false" />
+        <activity
+            android:name=".DisC"
+            android:exported="false" />
+        <activity
+            android:name=".DisB"
+            android:exported="false" />
+        <activity
+            android:name=".DisA"
+            android:exported="false" />
+        <activity
+            android:name=".DisElve"
+            android:exported="false" />
+        <activity
+            android:name=".Diseleve"
+            android:exported="false" />
+        <activity
+            android:name=".DisTen"
+            android:exported="false" />
+        <activity
+            android:name=".DisNine"
+            android:exported="false" />
+        <activity
+            android:name=".DisEight"
+            android:exported="false" />
+        <activity
+            android:name=".DisSeven"
+            android:exported="false" />
+        <activity
+            android:name=".DisSix"
+            android:exported="false" />
+        <activity
+            android:name=".DisFive"
+            android:exported="false" />
+        <activity
+            android:name=".DisFour"
+            android:exported="false" />
+        <activity
+            android:name=".DisThree"
+            android:exported="false" />
+        <activity
+            android:name=".DisTwo"
+            android:exported="false" />
+        <activity
+            android:name=".DisOne"
+            android:exported="false" />
+        <activity
+            android:name=".PageFour"
+            android:exported="false"
+            android:label="@string/title_activity_page_four"
+            android:theme="@style/Theme.SignLang.NoActionBar" />
+        <activity
+            android:name=".PageThree"
+            android:exported="false" />
+        <activity
+            android:name=".PageTwo"
+            android:exported="false" />
+        <activity
+            android:name=".PageOne"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
